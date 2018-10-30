@@ -226,7 +226,7 @@
                 <h5 id="chartTicker"><span class='semi-bold'>Ticker: </span></h5>
                 <h5 id="chartCurrency"><span class='semi-bold'>Currency: </span></h5>
                 <h5 id="chartPrice"><span class='semi-bold'>Price:</span></h5>
-                <h5 id="chartYield"><span class='semi-bold'>Yield:</span></h5>
+                <h4 id="chartYield"><span class='semi-bold'>Yield:</span></h5>
                 <h5 id="chartTenor"><span class='semi-bold'>Tenor:</span></h5>
                 <h5 id="chartMaturity"><span class='semi-bold'>Maturity:</span></h5>
                 <h5 id="chartCallDate"><span class='semi-bold'>Call Date:</span></h5>
