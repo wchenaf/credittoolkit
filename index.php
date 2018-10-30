@@ -1,1 +1,1 @@
-<?php header( 'Location: /public/screener.php' ) ;  ?>
+<?php header( 'Location: /public/comparables.php' ) ;  ?>
