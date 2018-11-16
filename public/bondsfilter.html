@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h2>Get data as JSON from a PHP file on the server.</h2>
+<button type="button" onclick="retrieveBonds()">
+    Click me to display Date and Time.</button>
+<pre id="demo"></pre>
+
+<script>
+let termQueryMap= { 
+        "industrySector.keyword": [ "Financial" ], 
+        "bondRelation.currency.currencyCode.keyword": [ "SGD" ] 
+    }
+
+let rangeQueryMap= { 
+        "finalMaturityDate": { 
+            "gte":"2001-07-10", 
+            "lte":"2050-10-20", 
+            "format": "yyyy-MM-dd" 
+        }, 
+        "bondRelation.bondPrice.midPriceClean": { 
+            "gte":"0", 
+            "lte":"200" 
+        } 
+    }
+
+let queryBody = { 
+        termQueryMap: {},
+        rangeQueryMap: {}
+    }
+
+function retrieveBonds(){
+    apiParam = JSON.stringify(queryBody);
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            myObj = JSON.parse(this.responseText);
+            document.getElementById("demo").insertAdjacentHTML("beforeend", JSON.stringify(queryBody, null, 2));
+            document.getElementById("demo").insertAdjacentHTML("beforeend", '<br><br><br>');
+            document.getElementById("demo").insertAdjacentHTML("beforeend", myObj.body);
+        }
+    };
+    xmlhttp.open("POST", "../api/bondlinc-bondsfilter.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("x=" + apiParam);
+}
+
+</script>
+
+</body>
+
+</html>

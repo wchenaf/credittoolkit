@@ -6,8 +6,8 @@ Requests::register_autoloader();
 $headers = array();
 $data = array(
     'client_id' => 'bondweb',
-    'username' => 'eric',
-    'password' => '1111',
+    'username' => 'api-user',
+    'password' => 'bond123',
     'grant_type' => 'password'
 );
 $response = Requests::post('https://auth-dev.bondlinc.com:8443/auth/realms/test/protocol/openid-connect/token', $headers, $data);
